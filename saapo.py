@@ -41,6 +41,7 @@ class Saapo:
     #metodo para logar no site, não retorna erro caso senha esteja incorreta PRECISA CORRIGIR
     #acessa site, pede os dados (login e seha) e entra no perfil
     def logar_no_site(self):
+
         print('INICIANDO LOGIN')
         print('*'*50)
         self.navegador.get('https://appintranet.cptm.sp.gov.br/Operacao/SAAPO/Autenticacao/Login')
