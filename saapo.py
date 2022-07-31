@@ -23,8 +23,8 @@ class Saapo:
 
     #definição do metodo para inicializar o programa sem precisar ficar chamando outros metodos
     def iniciar(self):
-        # self.logar_no_site()
-        # self.avaliacao_simulada()
+        self.logar_no_site()
+        self.avaliacao_simulada()
         self.continuar_execucao()
         self.fechar_selenium()
 
