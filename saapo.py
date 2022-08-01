@@ -107,18 +107,23 @@ class Saapo:
             for i in range(len(questoes)):
                 if i == 0:
                     print('Respondendo a questão:', i + 1)
-                    sleep(1)
+                    sleep(2)
                 if i > 0:
                     click_questoes[i].click()
                     print('Respondendo a questão:', i + 1)
-                    sleep(1)
-                self.navegador.find_element(By.XPATH, f'//*[@value="{min(inputs[i])}"]').click()
-                sleep(1)
+                    sleep(2)
+                try:
+                    self.navegador.find_element(By.XPATH, f'//*[@value="{min(inputs[i])}"]').click()
+                except ElementNotInteractableException as e:
+                    print('ERRO AO ENCONTRAR ELEMENTO')
+                    print('REINICIANDO...')
+                    # self.avaliacao_simulada()
+                sleep(2)
 
 
             #aqui é definido um tempo de espera para finalizar a avaliação
             #necessario para não gerar desconfiança com avaliações rapidas demais
-            tempo_espera = 60
+            tempo_espera = 50
             print(f'\nAguardando {tempo_espera} segundos para concluir a avaliação!')
             sleep(tempo_espera)
             self.navegador.find_element(By.ID, 'btnFinalizar').click()
